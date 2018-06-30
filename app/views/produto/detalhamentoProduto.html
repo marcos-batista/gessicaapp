@@ -1,0 +1,16 @@
+<h2>Cadastro <small> de Produto</small></h2>
+<div class="jumbotron">
+        <form name="produtoForm">
+                <label>Codigo</label>
+                <input class="form-control" type="text" ng-model="produto.codigo" name="codigo" placeholder="Codigo" ng-required="true"/>
+                <label>Descrição</label>
+                <input class="form-control" type="text" ng-model="produto.descricao" name="descricao" placeholder="Descricao" ng-required="true"/>
+                <label>Margem de Lucro</label>
+                <input class="form-control" type="text" ng-model="produto.margemLucroUnitario" name="margemLucroUnitario" placeholder="Margem de Lucro Unitario" ng-required="true"/>
+                <label>Desconto</label>
+                <input class="form-control" type="text" ng-model="produto.descontoUnitario" name="descontoUnitario" placeholder="Desconto Unitario" ng-required="true"/>
+                <label>Preço</label>
+                <input class="form-control" type="text" ng-model="produto.precoUnitario" name="precoUnitario" placeholder="Preço Unitario" ng-required="true"/>
+        </form>
+	<button class="btn btn-primary btn-block" ng-click="editarProduto(produto)">Adicionar Produto</button>
+</div>

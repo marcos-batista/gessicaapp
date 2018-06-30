@@ -1,0 +1,27 @@
+<div class="jumbotron">
+	<form name="contatoForm">
+		<select class="form-control" ng-model="contato.tipo">
+			<option value="">Selecione o tipo</option>
+			<option>Pessoa Física</option>
+			<option>Pessoa Jurídica</option>
+		</select>
+		<!-- {{contato||json}} -->
+		<div ng-show="contato.tipo === 'Pessoa Física'">
+			<input class="form-control" type="text" ng-model="contato.nome" name="nome" placeholder="Nome" ng-required="true" />
+			<input class="form-control" type="text" ng-model="contato.cpf" name="cpf" placeholder="CPF" ng-required="true"/>
+		</div>
+
+		<div ng-show="contato.tipo === 'Pessoa Jurídica'">
+			<input class="form-control" type="text" ng-model="contato.nomeFantasia" name="nomeFantasia" placeholder="Nome Fantasia" ng-required="true" />
+			<input class="form-control" type="text" ng-model="contato.cnpj" name="cnpj" placeholder="CNPJ" ng-required="true"/>
+			<input class="form-control" type="text" ng-model="contato.razaoSocial" name="razaoSocial" placeholder="Razão Social" ng-required="true"/>
+		</div>
+
+
+		<input class="form-control" type="text" ng-model="contato.telefone" name="telefone" placeholder="Telefone" ng-required="true"/>
+		<input class="form-control" type="date" ng-model="contato.data" name="data" placeholder="Data"/>
+		
+	</form>
+
+	<button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)">Adicionar Contato</button>
+</div>

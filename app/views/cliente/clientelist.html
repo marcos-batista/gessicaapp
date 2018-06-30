@@ -1,0 +1,27 @@
+<div>
+	<h2>Lista <small>de Clientes</small></h2>
+	<div class="jumbotron">
+		<div class="container">
+			
+				<input class="form-control" type="text" ng-model="criterioDeBusca" ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}" placeholder="Procurar?"/>
+				<table ng-show="clientes.length > 0" class="table table-striped">
+					<tr>
+						<th><a ng-click="ordenarPor('razaoSocial')">Razao Social</a></th>
+                        <th><a ng-click="ordenarPor('nomeFantasia')">Nome Fantasia</a></th>
+						<th><a ng-click="ordenarPor('categoria')">Categoria</a></th>
+						<th>Excluir</th>
+					</tr>
+					<tr ng-class="{'selecionado negrito': cliente.selecionado}" ng-repeat="cliente in clientes | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+						<td><a ui-sref="detalheCliente({id:cliente.id})">{{::cliente.razaoSocial}}</a></td>
+                        <td>{{cliente.nomeFantasia}}</td>
+						<td>{{cliente.categoria}}</td>
+						<td><a class="btn" ng-click="excluirCliente(cliente)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+					</tr>
+				</table>
+				<hr/>
+				<a class="btn btn-primary btn-block" ui-sref="newCliente">Criar Novo</a>
+				<button class="btn btn-danger btn-block" ng-click="apagarclientes(clientes)" ng-if="hasclienteSelecionado">Apagar clientes</button>
+		
+		</div>
+	</div>
+</div>

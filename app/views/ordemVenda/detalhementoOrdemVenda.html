@@ -1,0 +1,14 @@
+<h2>Cadastro <small> da Ordem de Venda</small></h2>
+<div class="jumbotron">
+	<form name="OrdemVendaForm">
+                <label>Codigo</label>
+                <input class="form-control" type="text" ng-model="ordemVenda.codigo" name="codigo" placeholder="Codigo" required/>
+                <label>Data</label>
+                <input class="form-control" type="date" ng-model="ordemVenda.data" name="data" placeholder="Data" required/>
+                <label>Desconto</label>
+                <input class="form-control" type="number" ng-model="ordemVenda.desconto" name="desconto" placeholder="Desconto(ex: R$:1.00)" required/>
+                <label>Ordem de Venda</label>
+                <input class="form-control" type="number" ng-model="ordemVenda.ordemVenda" name="ordemVenda" placeholder="Ordem de Venda" required/>
+	</form>
+	<button class="btn btn-primary btn-block" ng-click="adicionarordemVenda(ordemVenda)">Adicionar Ordem de Venda</button>
+</div>

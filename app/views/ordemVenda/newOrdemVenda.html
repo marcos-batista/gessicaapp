@@ -1,0 +1,53 @@
+<h2>Cadastro <small> da Ordem de Venda</small></h2>
+<div class="jumbotron">
+	<form name="OrdemVendaForm">
+                
+                <label>Codigo</label>
+                <input class="form-control" type="text" ng-model="ordemVenda.codigo" name="codigo" placeholder="Codigo" required/>
+                <label>Data</label>
+                <input class="form-control" type="number" ng-model="ordemVenda.data" name="data" placeholder="Data" required/>
+                <label>cliente</label>
+                <select class="form-control" ng-model="ordemVenda.cliente.id">
+                                <option value="">-=Selecione Cliente=-</option>
+                                <option ng-repeat="cliente in clientes" value="{{cliente.id}}">{{cliente.nomeFantasia}}</option>
+                </select>
+                
+                <hr/>
+                <label>Quantidade Produtos</label>
+                <input class="form-control" type="number" ng-model="item.quantidadeProdutos" name="quantidadeProdutos" placeholder="Quantidade Produtos" />
+                <label>Margem Lucro por Item</label>
+                <input class="form-control" type="number" ng-model="item.margemLucroItem" name="margemLucroItem" placeholder="Margem LucroItem" />
+                <label>DescontoItem</label>
+                <input class="form-control" type="number" ng-model="item.descontoItem" name="descontoItem" placeholder="DescontoItem" />
+                <label>Produtos</label>
+                <select class="form-control" ng-model="item.produtoComercial">
+                        <option value="">-=Selecione Produto=-</option>
+                        <option ng-repeat="produto in produtos" value="{{produto}}">{{produto.descricao}}</option>
+                </select>
+                <br>
+                <button type="button" class="btn btn-warning" ng-click="addItem(item)"><i class="fas fa-plus"></i></button>
+                <hr/>
+                <div  ng-show="listProdutos.length > 0">
+                        <label>Lista de itens</label>
+                        <table class="table table-striped">
+                                <tr>
+                                        <th>Codigo</a></th>
+                                        <th>Descrição</a></th>
+                                        <th>Margem de lucro/Unit</a></th>
+                                        <th>Desconto Unitario</a></th>
+                                        <th>Preço unitario</a></th>
+                                </tr>
+                                <tr  ng-repeat = "pro in listProdutos">
+                                        <td>{{pro.codigo}}</td>
+                                        <td>{{pro.descricao}}</td>
+                                        <td>{{pro.margemLucroUnitario}}</td>
+                                        <td>{{pro.descontoUnitario}}</td>
+                                        <td>{{pro.precoUnitario}}</td>
+                                </tr>
+                        </table>
+                </div>
+                <button class="btn btn-primary btn-block" ng-click="adicionarordemVenda(ordemVenda)">Adicionar Ordem de Venda</button>
+        
+        </form>
+
+</div>

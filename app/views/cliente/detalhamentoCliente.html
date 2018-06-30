@@ -1,0 +1,17 @@
+<h2>Editar<small> Cliente</small></h2>
+<div class="jumbotron">
+	<form name="clienteForm">
+		<label>Razão Social</label>
+        <input class="form-control" type="text" ng-model="cliente.razaoSocial" name="razaoSocial" placeholder="Razão Social" required />
+		<label>Nome Fantasia</label>
+		<input class="form-control" type="text" ng-model="cliente.nomeFantasia" name="nomeFantasia" placeholder="Nome Fantasia" required />
+		<label>Categoria</label>
+		<select class="form-control" ng-model="cliente.categoria" required>
+			<option value="">Selecione a Categoria</option>
+			<option value="COMUM">COMUM</option>
+			<option value="ESPECIAL">ESPECIAL</option>
+		</select>
+	</form>
+
+	<button class="btn btn-primary btn-block" ng-disabled="!cliente.razaoSocial||!cliente.nomeFantasia||!cliente.categoria" ng-click="editarCliente(cliente)">Editar Cliente</button>
+</div>

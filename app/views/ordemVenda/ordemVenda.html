@@ -1,0 +1,31 @@
+<div>
+	<h2>Ordem <small>de Serviço</small></h2>
+	<div class="jumbotron">
+		<div class="container">
+				<input class="form-control" type="text" ng-model="criterioDeBusca" ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}" placeholder="Procurar?"/>
+				<table ng-show="ordemVendas.length > 0" class="table table-striped">
+					<tr>
+						<th><a ng-click="ordenarPor('codigo')">Codigo</a></th>
+                        <th><a ng-click="ordenarPor('data')">Data</a></th>
+                        <th><a ng-click="ordenarPor('desconto')">Desconto</a></th>
+						<th><a ng-click="ordenarPor('cliente')">Cliente</a></th>
+						<th>Deletar</th>
+						<th></th>
+					</tr>
+					<tr ng-class="{'selecionado negrito': ordemVenda.selecionado}" ng-repeat="ordemVenda in ordemVendas | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+							<!-- <td>{{ordemVenda.id}}</td>
+							<td>{{ordemVenda.itens}}</td>  -->
+							
+						<td><a ui-sref="detalheordemVenda({id:codigo.id})">{{::ordemVenda.codigo}}</a></td>
+                        <td>{{ordemVenda.data}}</td>
+                        <td>{{ordemVenda.desconto}}</td>
+                        <td>{{ordemVenda.cliente.id}}</td>
+						<td><a class="btn" ng-click="excluirOrdemVenda(ordemVenda)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+					</tr>
+				</table>
+				<hr/>
+				<a class="btn btn-primary btn-block" ui-sref="newOrdemVenda">Criar Nova Ordem de Serviço</a>
+		
+		</div>
+	</div>
+</div>

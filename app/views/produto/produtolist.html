@@ -1,0 +1,28 @@
+<div>
+    <h2>Lista <small>de Produtos</small></h2>
+    <div class="jumbotron">
+        <div class="container">
+            <input class="form-control" type="text" ng-model="criterioDeBusca" ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}" placeholder="Procurar?"/>
+            <table ng-show="produtos.length > 0" class="table table-striped">
+                <tr>
+                    <th><a ng-click="ordenarPor('codigo')">Codigo</a></th>
+                    <th><a ng-click="ordenarPor('descricao')">Descrição</a></th>
+                    <th><a ng-click="ordenarPor('margemLucroUnitario')">Margem de lucro/Unit</a></th>
+                    <th><a ng-click="ordenarPor('descontoUnitario')">Desconto Unitario</a></th>
+                    <th><a ng-click="ordenarPor('precoUnitario')">Preço unitario</a></th>
+                    <th>Excluir</th>
+                </tr>
+                <tr ng-class="{'selecionado negrito': produto.selecionado}" ng-repeat="produto in produtos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                    <td><a ui-sref="detalheProduto({id:produto.id})">{{::produto.codigo}}</a></td>
+                    <td>{{produto.descricao}}</td>
+                    <td>{{produto.margemLucroUnitario}}</td>
+                    <td>{{produto.descontoUnitario}}</td>
+                    <td>{{produto.precoUnitario}}</td>
+                    <td><a class="btn" ng-click="excluirProduto(produto)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                </tr>
+            </table>
+            <hr/>
+            <a class="btn btn-primary btn-block" ui-sref="newProduto">Criar Novo Produto</a>
+        </div>
+    </div>
+</div>
